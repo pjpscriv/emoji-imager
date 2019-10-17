@@ -12,7 +12,7 @@ def hello():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
-  if request.method == 'POST':
+  if request.method == 'POST' and len(dict(request.form)) > 0:
     userdata = dict(request.form)
     book = userdata["book"][0]
     character = model.get_character(book)
