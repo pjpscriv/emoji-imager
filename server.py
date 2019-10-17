@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+import model
 
 app = Flask(__name__)
 
@@ -8,17 +9,15 @@ app = Flask(__name__)
 def hello():
   return render_template("index.html")
 
-@app.route('/character', methods=['GET', 'POST'])
-def computeCharacter():
+@app.route('/result', methods=['GET', 'POST'])
+def result():
   if request.method == 'POST':
     userdata = dict(request.form)
-    # print(userdata)
-    character = ""
-    return "You said " + str(userdata["book"]) + "!"
+    book = userdata["book"][0]
+    character = model.compute_character(book)
+    return "You're " + character + "!"
   else:
     return "Sorry, there was an error."
   
-
-
 if __name__ == "__main__":
   app.run()
