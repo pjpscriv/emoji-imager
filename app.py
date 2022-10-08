@@ -39,7 +39,7 @@ def image_html(start, end, emoji):
 ''' The root. Surely just template a random image here right? '''
 @app.route('/',  methods=['GET'])
 def root():
-    return 'Well there ain\'t nothin\''
+    return render_template_string('<p>Well there ain\'t nothin\' here.</p> <p><a href="/random/random/random">Click here</a> to see a random emoji.</p>')
 
 
 ''' Catchallllll WHOOP '''
