@@ -9,6 +9,9 @@ from backend.parser import generate_image
 app = Flask(__name__)
 
 
+VIEWPORT = '<head><meta name="viewport" content="width=device-width, initial-scale=1"></head>'
+
+
 ''' The image endpoint. This is the one that does the heavy lifting '''
 @app.route('/image', methods=['GET'])
 def get_image():
@@ -33,13 +36,13 @@ def get_image():
 ''' Basically just a template wrapper around the image endpoint '''
 @app.route('/<start>/<end>/<emoji>', methods=['GET'])
 def image_html(start, end, emoji):
-    return render_template_string(f'<img src="/image?start={start}&end={end}&emoji={emoji}">')
+    return render_template_string(f'{VIEWPORT}<body><img src="/image?start={start}&end={end}&emoji={emoji}"></body>')
 
 
 ''' The root. Surely just template a random image here right? '''
 @app.route('/',  methods=['GET'])
 def root():
-    return render_template_string('<p>Well there ain\'t nothin\' here.</p> <p><a href="/random/random/random">Click here</a> to see a random emoji.</p>')
+    return render_template_string(f'{VIEWPORT}<body><p>Well there ain\'t nothin\' here.</p> <p><a href="/random/random/random">Click here</a> to see a random emoji.</p></body>')
 
 
 ''' Catchallllll WHOOP '''
