@@ -5,7 +5,7 @@ from PIL import Image
 from shared.types import Emoji
 from shared.helpers import random_color, random_emoji, valid_emoji
 
-SIZE = 256
+SIZE = 150
 OUT_DIR = '_out'
 EMOJI_FILE = './backend/data/full_emoji.csv'
 
@@ -66,7 +66,7 @@ def generate_emoji_image(emoji_str: str) -> Image:
 
 ''' The juice. This is the main thing we want the API to do. '''
 def generate_image(start: str, end: str, emoji: str):
-    gradient = generate_gradient(start, end, 200, 200)
+    gradient = generate_gradient(start, end, SIZE, SIZE)
     emoji_image = generate_emoji_image(emoji)
     return merge_images(emoji_image, gradient)
 
@@ -75,7 +75,7 @@ def generate_image(start: str, end: str, emoji: str):
 def random_gradient():
     s = random_color()
     e = random_color()
-    return generate_gradient(e, s, 200, 200)
+    return generate_gradient(e, s, SIZE, SIZE)
 
 
 ''' Create files of all the emojis with gradient backgrounds '''
