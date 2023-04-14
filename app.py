@@ -1,6 +1,6 @@
 import io
 from PIL import Image
-from flask import Flask, render_template_string, request
+from flask import Flask, render_template_string, request, render_template
 
 from shared.helpers import *
 from backend.parser import generate_image
@@ -36,13 +36,13 @@ def get_image():
 ''' Basically just a template wrapper around the image endpoint '''
 @app.route('/<start>/<end>/<emoji>', methods=['GET'])
 def image_html(start, end, emoji):
-    return render_template_string(f'{VIEWPORT}<body><img src="/image?start={start}&end={end}&emoji={emoji}"></body>')
+    return render_template('index.html', start=start, end=end, emoji=emoji)
 
 
 ''' The root. Surely just template a random image here right? '''
 @app.route('/',  methods=['GET'])
 def root():
-    return render_template_string(f'{VIEWPORT}<body><p>Well there ain\'t nothin\' here.</p> <p><a href="/random/random/random">Click here</a> to see a random emoji.</p></body>')
+    return render_template('result.html')
 
 
 ''' Catchallllll WHOOP '''
