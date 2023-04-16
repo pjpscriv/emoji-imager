@@ -13,9 +13,9 @@ app = Flask(__name__)
 ''' The image endpoint. This is the one that does the heavy lifting '''
 @app.route('/image', methods=['GET'])
 def get_image():
-    s = '#' + request.args.get('start')
-    e = '#' + request.args.get('end')
-    em = request.args.get('emoji')
+    s = '#' + request.args.get('start', 'invalid')
+    e = '#' + request.args.get('end', 'invalid')
+    em = request.args.get('emoji', None)
 
     print(f'REQUEST: ({s}->{e} / {em})')
 
@@ -34,13 +34,13 @@ def get_image():
 ''' Basically just a template wrapper around the image endpoint '''
 @app.route('/<start>/<end>/<emoji>', methods=['GET'])
 def image_html(start, end, emoji):
-    return render_template('index.html', start=start, end=end, emoji=emoji)
+    return render_template('result.html', start=start, end=end, emoji=emoji)
 
 
 ''' The root. Surely just template a random image here right? '''
 @app.route('/', methods=['GET'])
 def root():
-    return render_template('result.html')
+    return render_template('index.html')
 
 
 ''' Catchallllll WHOOP '''

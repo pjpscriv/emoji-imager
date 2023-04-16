@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    
-    html, body {
-      height: 100%;
-      width: 100%;
-      margin: 0;
-    }
-    
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}"></style>
 </head>
 <body>
-  <img class="image" src="/image?start={{start}}&end={{end}}&emoji={{emoji}}">
+  <h1>Emoji Imager</h1>
+  <p>Use the options below to create an emoji image ✨</p>
+  <div>
+    <p class="start-section">
+      <input type="color" id="start-color" name="start-color">
+      <label for="start-color">Start Color</label>
+    </p>
+    <p class="end-section">
+      <input type="color" id="end-color" name="end-color">
+      <label for="end-color">End Color</label>
+    </p>
+    <p class="emoji-section">
+      <input type="text" id="emoji" name="emoji">
+      <label for="emoji">Emoji</label>
+    </p>
+  </div>
+  <p class="image-result">
+    <img src="/image">
+  </p>
+  <p><a href="/random/random/random">Click here</a> to see a random emoji.</p>
+  <script src="{{ url_for('static', filename = 'js/index.js') }}"></script>
 </body>
 </html>
