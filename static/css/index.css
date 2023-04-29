@@ -10,3 +10,8 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
+input {
+  width: 52px;
+  padding: 4px
+}
