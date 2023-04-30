@@ -1,7 +1,8 @@
 html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -16,10 +17,22 @@ input {
   padding: 4px;
 }
 
+.palette {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 11px;
+  padding: 10px;
+  border-radius: 4px;
+  filter: drop-shadow(4px 4px 3px #0002);
+  background-color: white;
+  margin-bottom: 16px;
+}
+
 .color {
   width: 20px;
   height: 20px;
   border-radius: 30px;
+  border: solid #0005 1px;
 }
 
 .color.mint  { background-color: #defcf4; }
