@@ -1,14 +1,14 @@
- $('#start-color').on('input', () => {
+ $('#start-color').on('change input', () => {
    printValues();
    updateImage();
  });
 
- $('#end-color').on('change', () => {
+ $('#end-color').on('change input', () => {
    printValues();
    updateImage();
  });
 
- $('#emoji').on('change', () => {
+ $('#emoji').on('change input', () => {
    printValues();
    updateImage();
  });

@@ -12,6 +12,16 @@ body {
     flex-direction: column;
 }
 
+.start-section, .end-section {
+  margin-bottom: 16px;
+}
+
+.section {
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+}
+
 input {
   width: 64px;
   padding: 4px;
