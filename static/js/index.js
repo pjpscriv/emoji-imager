@@ -3,12 +3,12 @@
    updateImage();
  });
 
- $('#end-color').on('input', () => {
+ $('#end-color').on('change', () => {
    printValues();
    updateImage();
  });
 
- $('#emoji').on('input', () => {
+ $('#emoji').on('change', () => {
    printValues();
    updateImage();
  });
@@ -30,12 +30,25 @@ function updateImage() {
   $('.download-link a').attr('href', new_src);
 }
 
-$('.start-palette .color').on('click', () => {
+
+function convertToHex(rgbString) {
+  let rbg = rgbString.split("(")[1].split(")")[0];
+  let hex = rbg.split(',').map((x) => {
+    x = parseInt(x).toString(16);      //Convert to a base16 string
+    return (x.length==1) ? "0"+x : x;
+  })
+  return '#' + hex.join('')
+}
+
+
+$('.start-palette .color').click(function () {
   let color = $(this).css('background-color');
-  $('#start-color').val(color);
+  let convd = convertToHex(color);
+  $('#start-color').val(convd).change();
 })
 
-$('.end-palette .color').on('click', () => {
+$('.end-palette .color').click(function () {
   let color = $(this).css('background-color');
-  $('#end-color').val(color);
+  let convd = convertToHex(color);
+  $('#end-color').val(convd).change();
 })
