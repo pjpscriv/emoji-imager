@@ -54,20 +54,24 @@ def merge_images(foreground: Image, background: Image) -> Image:
 
     return background
 
-
-''' Take a unicode emoji and if one exists, return the PIL image of it '''
-def generate_emoji_image(emoji_str: str) -> Image:
+'''Take unicode emoji and return the emoji object'''
+def get_emoji(emoji_str: str) -> Emoji:
     if emoji_str == '':
       emoji = None
     elif emoji_str and valid_emoji(emoji_str, EMOJI_LIST):
         emoji = EMOJI_DICT.get(emoji_str)
     else:
         emoji = random_emoji(EMOJI_DICT, EMOJI_LIST)
+    return emoji
+  
+
+''' Take an emoji object and return the PIL image of it '''
+def generate_emoji_image(emoji: Emoji) -> Image:
     return emoji.get_image() if emoji else Image.new("RGBA", (50, 50))
 
 
 ''' The juice. This is the main thing we want the API to do. '''
-def generate_image(start: str, end: str, emoji: str):
+def generate_image(start: str, end: str, emoji: Emoji):
     gradient = generate_gradient(start, end, SIZE, SIZE)
     emoji_image = generate_emoji_image(emoji)
     return merge_images(emoji_image, gradient)

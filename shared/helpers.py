@@ -25,8 +25,8 @@ def valid_emoji(emoji: str, emoji_list: list) -> bool:
     return emoji in emoji_list
 
 
-def image_response(img_str):
+def image_response(img_str, filename):
     resp = make_response(img_str, 200)
     resp.headers.set('Content-Type', 'image/png')
-    resp.headers.set('Content-Disposition', 'attachment', filename='sweet_emoji.png')
+    resp.headers.set('Content-Disposition', 'attachment', filename=filename)
     return resp

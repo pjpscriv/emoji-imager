@@ -3,7 +3,7 @@ from PIL import Image
 from flask import Flask, render_template_string, request, render_template
 
 from shared.helpers import *
-from backend.parser import generate_image
+from backend.parser import get_emoji, generate_image
 
 
 app = Flask(__name__)
@@ -21,14 +21,15 @@ def get_image():
 
     gradient_start = s if valid_color(s) else random_color()
     gradient_end = e if valid_color(e) else random_color()
-    emoji = em if em else None
+    emoji = get_emoji(em) if em else None
     image = generate_image(gradient_start, gradient_end, emoji)
+    filename = (emoji.name + '-' if emoji else '') + f'{gradient_start}-{gradient_end}.png'
 
     byte_buffer = io.BytesIO()
     image.save(byte_buffer, format='PNG')
     img_str = byte_buffer.getvalue()
 
-    return image_response(img_str)
+    return image_response(img_str, filename)
 
 
 ''' Basically just a template wrapper around the image endpoint '''
