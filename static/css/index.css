@@ -15,3 +15,18 @@ input {
   width: 64px;
   padding: 4px;
 }
+
+.color {
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+.color.mint { "background-color": "#defcf4"; }
+.color.peach { "background-color": "#f8dcd8"; }
+.color.purp { "background-color": "#e9daf7"; }
+.color.lemon { "background-color": "#fef0d3"; }
+.color.blue { "background-color": "#dff4f9"; }
+.color.pink { "background-color": "#fddeed"; }
+.color.green { "background-color": "#dcf3df"; }
+.color.orang { "background-color": "#fee4d3"; }
