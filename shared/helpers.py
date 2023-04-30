@@ -30,3 +30,6 @@ def image_response(img_str, filename):
     resp.headers.set('Content-Type', 'image/png')
     resp.headers.set('Content-Disposition', 'attachment', filename=filename)
     return resp
+
+def chill_str(color: str) -> str:
+  return color.lower().replace('#', '')

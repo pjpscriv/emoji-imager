@@ -23,7 +23,7 @@ def get_image():
     gradient_end = e if valid_color(e) else random_color()
     emoji = get_emoji(em) if em else None
     image = generate_image(gradient_start, gradient_end, emoji)
-    filename = (emoji.name + '-' if emoji else '') + f'{gradient_start}-{gradient_end}.png'
+    filename = (emoji.name + '_' if emoji else '') + f'{chill_str(gradient_start)}_{chill_str(gradient_end)}.png'
 
     byte_buffer = io.BytesIO()
     image.save(byte_buffer, format='PNG')
