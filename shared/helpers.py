@@ -31,5 +31,6 @@ def image_response(img_str, filename):
     resp.headers.set('Content-Disposition', 'attachment', filename=filename)
     return resp
 
-def chill_str(color: str) -> str:
-  return color.lower().replace('#', '')
+def chill_str(string: str) -> str:
+  string = string.lower().replace(' ', '_')
+  return ''.join([c for c in string if c.isalnum() or c == '_'])
