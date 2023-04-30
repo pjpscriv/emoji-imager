@@ -57,7 +57,9 @@ def merge_images(foreground: Image, background: Image) -> Image:
 
 ''' Take a unicode emoji and if one exists, return the PIL image of it '''
 def generate_emoji_image(emoji_str: str) -> Image:
-    if emoji_str and valid_emoji(emoji_str, EMOJI_LIST):
+    if emoji_str == '':
+      emoji = None
+    elif emoji_str and valid_emoji(emoji_str, EMOJI_LIST):
         emoji = EMOJI_DICT.get(emoji_str)
     else:
         emoji = random_emoji(EMOJI_DICT, EMOJI_LIST)
