@@ -30,3 +30,12 @@ function updateImage() {
   $('.download-link a').attr('href', new_src);
 }
 
+$('.start-palette .color').on('click', () => {
+  let color = $(this).css('background-color');
+  $('#start-color').val(color);
+})
+
+$('.end-palette .color').on('click', () => {
+  let color = $(this).css('background-color');
+  $('#end-color').val(color);
+})
