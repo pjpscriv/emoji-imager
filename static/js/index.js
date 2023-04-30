@@ -25,9 +25,11 @@ function updateImage() {
   let emoji = $('#emoji').val();
   
   let new_src = `/image?start=${start}&end=${end}&emoji=${emoji}`;
+  let new_href = `/${start}/${end}/${emoji}`;
   
   $('.image-result img').attr('src', new_src);
   $('.download-link a').attr('href', new_src);
+  $('.share-link a').attr('href', new_href);
 }
 
 
