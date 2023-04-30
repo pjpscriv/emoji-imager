@@ -14,7 +14,7 @@
   <p>Use the options below to create an emoji image ✨</p>
   
   <div>
-    <p class="start-section">
+    <div class="start-section">
       <div class="palette start-palette">
         <div class="color mint"></div>
         <div class="color peach"></div>
@@ -27,8 +27,8 @@
       </div>
       <label for="start-color">Start Color</label>
       <input type="color" id="start-color" name="start-color" value="#F3EFF5">
-    </p>
-    <p class="end-section">
+    </div>
+    <div class="end-section">
       <div class="palette end-palette">
         <div class="color mint"></div>
         <div class="color peach"></div>
@@ -41,17 +41,17 @@
       </div>
       <label for="end-color">End Color</label>
       <input type="color" id="end-color" name="end-color" value="#5386E4">
-    </p>
-    <p class="emoji-section">
+    </div>
+    <div class="emoji-section">
       <label for="emoji">Emoji</label>
       <input type="text" id="emoji" name="emoji" value="🐧">
-    </p>
+    </div>
   </div>
   <p class="image-result">
     <img src="/image?start=F3EFF5&end=5386E4&emoji=🐧">
   </p>
   <p>
-    <a>Download <span class="material-symbols-outlined">download</span></a>
+    <a href="/image?start={{start}}&end={{end}}&emoji={{emoji}}" download>Download <span class="material-symbols-outlined">download</span></a>
   </p>
   <p><a href="/random/random/random">Click here</a> to see a random emoji.</p>
   

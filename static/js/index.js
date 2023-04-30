@@ -25,6 +25,8 @@ function updateImage() {
   let emoji = $('#emoji').val();
   
   let new_src = `/image?start=${start}&end=${end}&emoji=${emoji}`;
+  let new_dwnld = ``
   
   $('.image-result img').attr('src', new_src);
 }
+

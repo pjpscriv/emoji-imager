@@ -21,18 +21,23 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 11px;
-  padding: 10px;
-  border-radius: 4px;
-  filter: drop-shadow(4px 4px 3px #0002);
+  padding: 12px;
+  border-radius: 8px;
+  filter: drop-shadow(0px 0px 4px #0002);
   background-color: white;
   margin-bottom: 16px;
 }
 
 .color {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   border-radius: 30px;
-  border: solid #0005 1px;
+  border: solid #0000 1px;
+  cursor: pointer;
+}
+
+.color:hover {
+  border-color: #0005;
 }
 
 .color.mint  { background-color: #defcf4; }
