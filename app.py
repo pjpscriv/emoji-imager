@@ -22,6 +22,7 @@ def get_image():
     gradient_start = s if valid_color(s) else random_color()
     gradient_end = e if valid_color(e) else random_color()
     emoji = get_emoji(em) if em else None
+    print(f'EMOJI: {emoji.name if emoji else 'N/A'}')
     image = generate_image(gradient_start, gradient_end, emoji)
     filename = (emoji.name + '_' if emoji else '') + f'{chill_str(gradient_start)}_{chill_str(gradient_end)}.png'
 
