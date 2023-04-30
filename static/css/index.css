@@ -16,13 +16,13 @@ body {
   margin-bottom: 16px;
 }
 
-.section {
+.input-section {
   align-items: center;
   justify-content: space-evenly;
   display: flex;
 }
 
-input {
+input#emoji {
   width: 64px;
   padding: 4px;
 }
@@ -58,3 +58,7 @@ input {
 .color.pink  { background-color: #fddeed; }
 .color.green { background-color: #dcf3df; }
 .color.orang { background-color: #fee4d3; }
+
+.material-symbols-outlined {
+  vertical-align: -6px;
+}
