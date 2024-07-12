@@ -1,8 +1,8 @@
 # Emoji Gradient
 
-On Facebook Messenger iOS Phone can give their group chats pretty emoji pictures. You can't do this on Android 😤. I wanted to be able to make my chats pretty so I made this.
+On Facebook Messenger, iOS users can give their group chats pretty emoji pictures. You can't do this on Android 😤. I wanted to be able to make my chats pretty so I made this.
 
-This is a little website that generates pretty emoji pictures with gradient backgrounds so you can download them, add them to all your chats and be the envy of all your friends.
+This is a little website that generates pretty emoji pictures with gradient backgrounds so you can download them, add them to all your chats, and be the envy of all your friends.
 
 ### Usage
 For example:
@@ -16,7 +16,7 @@ gives you this:
 ### Invalid Input
 If the parameters are invalid a random emoji gradient will be generated, e.g.:
 ```
-https://twilight-immense-monitor.glitch.me/not-a-color/also-not-a-color/not-emoji
+https://emoji-imager.glitch.me/not-a-color/also-not-a-color/not-emoji
 ```
 will give you this:
 
