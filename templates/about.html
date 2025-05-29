@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+  <h1>Emoji Gradient</h1>
+  <p>
+    On Facebook Messenger, iOS users can give their group chats pretty emoji 
+    pictures. You can't do this on Android 😤. I wanted to be able to make my 
+    chats pretty so I made this.
+  </p>
+  <p>
+    This is a little website that generates pretty emoji pictures with gradient 
+    backgrounds so you can download them, add them to all your chats, and be 
+    the envy of all your friends.
+  </p>
+  
+  <h3>Usage</h3>
+  <p>
+    For example:
+    
+    <code><pre>
+      https://emoji.pjpscriv.com/F3EFF5/5386E4/🐧
+    </pre></code>
+    gives you this:
+    
+    <img src="/image?start=F3EFF5&end=5386E4&emoji=🐧" alt="Cute little penguin pic">
+  </p>
+  
+  <h3>Invalid Input</h3>
+  <p>
+    If the parameters are invalid a random emoji gradient will be generated, e.g.:
+    
+    <code><pre>
+    https://emoji.pjpscriv.com/not-a-color/also-not-a-color/not-emoji
+    </pre></code>
+    
+    will give you this:
+    
+    <img src="/image?start=random&end=random&emoji=random" alt="Random emoji pic">
+  </p>
+  
+  <h3>Credits</h3>
+  
+  <p>
+    Built from <a href="https://medium.com/analytics-vidhya/build-a-python-flask-app-on-glitch-fc2c4367baaf">Kelly Lougheed</a>'s Python Flask Template
+  </p>
+  
+  <a class="home-link" href="/">Home 👀</a>
+  
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</body>
+</html>
