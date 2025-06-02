@@ -1,4 +1,4 @@
-# Emoji Gradient
+# Emoji Gradient Imager Generator
 
 On Facebook Messenger, iOS users can give their group chats pretty emoji pictures. You can't do this on Android 😤. I wanted to be able to make my chats pretty so I made this.
 
