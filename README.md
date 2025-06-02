@@ -7,20 +7,20 @@ This is a little website that generates pretty emoji pictures with gradient back
 ### Usage
 For example:
 ```
-https://emoji-imager.glitch.me/F3EFF5/5386E4/🐧
+https://emoji.pjpscriv.com/F3EFF5/5386E4/🐧
 ```
 gives you this:
 
-![Cute little penguin pic](https://emoji-imager.glitch.me/image?start=F3EFF5&end=5386E4&emoji=🐧)
+![Cute little penguin pic](https://emoji.pjpscriv.com/image?start=F3EFF5&end=5386E4&emoji=🐧)
 
 ### Invalid Input
 If the parameters are invalid a random emoji gradient will be generated, e.g.:
 ```
-https://emoji-imager.glitch.me/not-a-color/also-not-a-color/not-emoji
+https://emoji.pjpscriv.com/not-a-color/also-not-a-color/not-emoji
 ```
 will give you this:
 
-![Random emoji pic](https://emoji-imager.glitch.me/image?start=random&end=random&emoji=random)
+![Random emoji pic](https://emoji.pjpscriv.com/image?start=random&end=random&emoji=random)
 
 
 ### Credits
