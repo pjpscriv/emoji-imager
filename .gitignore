@@ -1,2 +1,5 @@
 # Don't add your keys to the repo my g
 keys.json
+
+# Also pycaches
+__pycache__/
