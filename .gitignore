@@ -6,9 +6,3 @@ __pycache__/
 
 # Downloader
 downloader/
-
-# Ignore non-Apple images to start with
-backend/imgs/google
-backend/imgs/microsoft
-backend/imgs/twitter
-backend/imgs/apple
