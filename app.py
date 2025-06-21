@@ -35,7 +35,7 @@ def get_image():
 
     # Create the image
     image = generate_image(gradient_start, gradient_end, emoji, vendor)
-    filename = f'{chill_str(emoji.name) + '_' if emoji else ''}{chill_str(gradient_start)}_{chill_str(gradient_end)}.png'
+    filename = f"{chill_str(emoji.name) + '_' if emoji else ''}{chill_str(gradient_start)}_{chill_str(gradient_end)}.png"
 
     byte_buffer = io.BytesIO()
     image.save(byte_buffer, format='PNG')
