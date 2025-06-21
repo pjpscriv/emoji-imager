@@ -2,12 +2,13 @@ import os
 import csv
 from PIL import Image
 
-from shared.types import Emoji
-from shared.helpers import random_color, random_emoji, valid_emoji
+from shared.types import Emoji, Emoji2
+from shared.helpers import random_color, random_emoji, valid_emoji, read_emoji_data_file
 
-SIZE = 150
+SIZE = 350
 OUT_DIR = '_out'
 EMOJI_FILE = './backend/data/full_emoji.csv'
+EMOJI_FILE_2 = './shared/emojis.csv'
 
 
 ''' Load all emojis and return them as an object list '''
@@ -21,8 +22,15 @@ def load_emojis() -> dict:
             emojis[emoji.emoji] = emoji
     return emojis
 
+def load_emojis_2() -> dict:
+    data = read_emoji_data_file(EMOJI_FILE_2)
+    emojis = {}
+    for emoji in [Emoji2(row) for row in data]:
+        if not emoji.ignore:
+            emojis[emoji.emoji] = emoji
+    return emojis
 
-EMOJI_DICT = load_emojis()
+EMOJI_DICT = load_emojis_2()
 EMOJI_LIST = list(EMOJI_DICT.keys())
 
 
@@ -55,7 +63,7 @@ def merge_images(foreground: Image, background: Image) -> Image:
     return background
 
 '''Take unicode emoji and return the emoji object'''
-def get_emoji(emoji_str: str) -> Emoji:
+def get_emoji(emoji_str: str) -> Emoji2:
     if emoji_str == '':
       emoji = None
     elif emoji_str and valid_emoji(emoji_str, EMOJI_LIST):
@@ -65,16 +73,17 @@ def get_emoji(emoji_str: str) -> Emoji:
     return emoji
   
 
-''' Take an emoji object and return the PIL image of it '''
-def generate_emoji_image(emoji: Emoji) -> Image:
-    return emoji.get_image() if emoji else Image.new("RGBA", (50, 50))
-
-
 ''' The juice. This is the main thing we want the API to do. '''
-def generate_image(start: str, end: str, emoji: Emoji):
+def generate_image(start: str, end: str, emoji: Emoji2, vendor: str) -> Image:
     gradient = generate_gradient(start, end, SIZE, SIZE)
-    emoji_image = generate_emoji_image(emoji)
+    emoji_image = generate_emoji_image(emoji, vendor)
     return merge_images(emoji_image, gradient)
+
+
+''' Take an emoji object and return the PIL image of it '''
+def generate_emoji_image(emoji: Emoji2, vendor: str) -> Image:
+    size = 160
+    return emoji.get_image(vendor, size) if emoji else Image.new("RGBA", (size, size))
 
 
 ''' Return a gradient between two random colors '''

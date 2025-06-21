@@ -1,6 +1,35 @@
 import io
 import base64
 from PIL import Image
+from shared.helpers import get_row_filename
+
+
+class Emoji2:
+    emoji: str = ''
+    name: str = ''
+    codepoints: str = ''
+    filename: str = ''
+    ignore: bool = False
+
+    def __init__(self, row: dict) -> None:
+        self.emoji = row['emoji']
+        self.name = row['name']
+        self.codepoints = row['codepoints']
+        self.ignore = row.get('ignore', '0') == '1'
+        self.filename = get_row_filename(row)
+    
+    def get_image(self, vendor: str, size: int) -> Image:
+        image = self.get_company_image(vendor)
+        # Resize image to 160 x 160 pixels
+        image = image.resize((size, size))
+        return image
+
+    def get_company_image(self, company: str) -> Image:
+        try:
+            return Image.open(f'./backend/imgs/{company}/{self.filename}')
+        except FileNotFoundError:
+            raise Exception(f'ERROR: Could not load image for this emoji: "{self.name}" (Emoji: {self.emoji}, Company: {company})')
+
 
 class Emoji:
     id = 0
@@ -21,7 +50,7 @@ class Emoji:
     _print_limit = 35
 
 
-    def __init__(self, line):
+    def __init__(self, line) -> None:
         self.id = line[0]
         self.emoji = line[1]
         self.unicode = line[2]
@@ -38,7 +67,7 @@ class Emoji:
         self.docomo = line[13]
         self.kddi = line[14]
 
-    def get_image(self):
+    def get_image(self) -> Image:
         try:
             return self.get_company_image(self.apple)
         except:
@@ -84,20 +113,20 @@ class Emoji:
         except:
             raise Exception(f'ERROR: Could not load image for this emoji: "{self.name}" (ID: {self.id})')
 
-    def get_company_image(self, company_string):
+    def get_company_image(self, company_string) -> Image:
         bytes_string = company_string.split(',')[1]
         actual_bytes = base64.b64decode(bytes_string)
         image = Image.open(io.BytesIO(actual_bytes))
         return image
 
-    def __repr__(self):
-        return self.print_partal()
+    def __repr__(self) -> str:
+        return self.print_partial()
 
-    def print_partal(self):
+    def print_partial(self) -> str:
         res = f'''Emoji: {self.emoji} (ID: {self.id}, {self.unicode}, "{self.name}") Apple: "{self.apple[:self._print_limit]}..."'''
         return res
 
-    def print_full(self):
+    def print_full(self) -> str:
         res = f'''Emoji: {{
     ID: {self.id},
     emoji: {self.emoji},
