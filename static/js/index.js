@@ -1,22 +1,22 @@
- $('#start-color').on('change input', () => {
-   printValues();
-   updateImage();
- });
+$('#start-color').on('change input', () => {
+  printValues();
+  updateImage();
+});
 
- $('#end-color').on('change input', () => {
-   printValues();
-   updateImage();
- });
+$('#end-color').on('change input', () => {
+  printValues();
+  updateImage();
+});
 
- $('#emoji').on('change input', () => {
-   printValues();
-   updateImage();
- });
+$('#emoji').on('change input', () => {
+  printValues();
+  updateImage();
+});
 
-  $('#flavour').on('change input', () => {
-    printValues();
-    updateImage();
-  });
+$('#flavour').on('change input', () => {
+  printValues();
+  updateImage();
+});
 
 function printValues() {
   console.log('Start:', $('#start-color').val());
