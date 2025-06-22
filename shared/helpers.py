@@ -20,7 +20,8 @@ VENDOR_LIST = [
     'apple',
     'microsoft',
     'google',
-    'twitter'
+    'twitter',
+    'whatsapp'
 ]
 
 def random_color(exclude: str = '') -> str:

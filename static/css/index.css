@@ -102,3 +102,8 @@ pre {
   height: 1.3em;
   text-align: center;
 }
+
+.image-result img {
+  margin-top: 16px;
+  border-radius: 1em;
+}
