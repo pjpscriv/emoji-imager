@@ -21,6 +21,10 @@ body {
   margin: 16px;
 }
 
+p { 
+  text-align: center;
+}
+
 .blurb {
   padding: 10px;
   text-align: center;
